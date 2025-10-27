@@ -53,8 +53,8 @@ services:
         reservations:
           devices:
             - driver: nvidia
-              device_ids: [ "0" ]
-              capabilities: [ gpu ]
+              device_ids: ["0"]
+              capabilities: [gpu]
 
   mineru-gradio:
     image: mineru-vllm:latest
@@ -62,14 +62,14 @@ services:
     restart: always
     profiles: ["gradio"]
     ports:
-      - 7860:7860
+      - 31906:7860
     environment:
       MINERU_MODEL_SOURCE: local
     entrypoint: mineru-gradio
     command:
       --server-name 0.0.0.0
       --server-port 7860
-      --enable-vllm-engine true  # Enable the vllm engine for Gradio
+      --enable-vllm-engine true # Enable the vllm engine for Gradio
       # --enable-api false  # If you want to disable the API, set this to false
       # --max-convert-pages 20  # If you want to limit the number of pages for conversion, set this to a specific number
       # parameters for vllm-engine
@@ -84,5 +84,5 @@ services:
         reservations:
           devices:
             - driver: nvidia
-              device_ids: [ "0" ]
-              capabilities: [ gpu ]
+              device_ids: ["0"]
+              capabilities: [gpu]
