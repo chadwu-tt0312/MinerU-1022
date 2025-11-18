@@ -1,6 +1,6 @@
 *.tar
 *.tar.gz
-*.zip
+# *.zip
 venv*/
 envs/
 slurm_logs/
